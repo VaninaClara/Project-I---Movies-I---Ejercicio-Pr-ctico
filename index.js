@@ -7,8 +7,14 @@ require("dotenv").config();
 
 // Creo la variable PORT y le doy el valor que esta 
 // en mi .env, accediendo a ella mediante process.env.NOMBREVARIABLE
-// 
+
 const PUERTITO = process.env.PORT;
+
+// Me traigo mi base de datos
+const db = require("./src/utils/db.js");
+// Estoy ejecutando la función connectDB de mi archivo db.js
+// que se encuentra en ./src/utils/db.js
+db.connectDB();
 
 const express = require("express");
 
