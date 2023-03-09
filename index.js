@@ -10,6 +10,8 @@ require("dotenv").config();
 
 const PUERTITO = process.env.PORT;
 
+const moviesRoutes = require("./src/api/movies/movies.routes");
+
 // Me traigo mi base de datos
 const db = require("./src/utils/db.js");
 // Estoy ejecutando la función connectDB de mi archivo db.js
@@ -23,6 +25,10 @@ const express = require("express");
 // De esta manera tendré un montón de funciones que podré ejecutar,
 // para que realice el servido.
 const server = express();
+
+// Una ruta que usa mi servidor para indicarme que
+// /movies va a gestionar las rutas de moviesRoutes 
+server.use("/movies", moviesRoutes);
 
 // una función que ejecuta el servidor, en este caso para utilizar una ruta
 // para mostrar algo o para enrutar de otra manera.
